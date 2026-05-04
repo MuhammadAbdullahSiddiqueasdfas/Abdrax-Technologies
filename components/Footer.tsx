@@ -27,20 +27,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden ring-2 ring-blue-500/30">
-                <Image
-                  src="/logo.png"
-                  alt="Abdrax Technologies"
-                  width={40}
-                  height={40}
-                  className="object-contain p-1"
-                />
-              </div>
-              <div>
-                <span className="text-lg font-bold gradient-text">Abdrax</span>
-                <span className="text-lg font-bold text-white"> Tech</span>
-              </div>
+            <Link href="/" className="flex items-center mb-5">
+              <Image
+                src="/logo.png"
+                alt="Abdrax Technologies"
+                width={160}
+                height={50}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Transforming ideas into powerful digital solutions. We build

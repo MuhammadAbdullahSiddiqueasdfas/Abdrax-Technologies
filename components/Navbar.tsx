@@ -34,7 +34,7 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-[9999] bg-black/95 backdrop-blur-md border-b border-gray-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-32">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link
             href="/"
@@ -43,9 +43,9 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Abdrax Technologies"
-              width={400}
-              height={100}
-              className="h-24 w-auto object-contain"
+              width={220}
+              height={70}
+              className="h-16 w-auto object-contain"
               priority
             />
           </Link>
