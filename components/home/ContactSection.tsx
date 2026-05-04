@@ -1,0 +1,214 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { FaPaperPlane, FaCheckCircle } from "react-icons/fa";
+
+export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    }, 1500);
+  };
+
+  return (
+    <section id="contact-form" className="py-24 bg-dark-900 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-white">Let&apos;s Start Your </span>
+            <span className="gradient-text">Project</span>
+          </h2>
+          <p className="text-gray-400 text-lg">
+            Fill out the form below and we&apos;ll get back to you within 24 hours
+          </p>
+        </motion.div>
+
+        {/* Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <form
+            onSubmit={handleSubmit}
+            className="p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  placeholder="john@example.com"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              {/* Phone */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  placeholder="+92 300 1234567"
+                />
+              </div>
+
+              {/* Service */}
+              <div>
+                <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
+                  Service Needed *
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                >
+                  <option value="" className="bg-gray-900">Select a service</option>
+                  <option value="software-development" className="bg-gray-900">Software Development</option>
+                  <option value="app-development" className="bg-gray-900">App Development</option>
+                  <option value="website-development" className="bg-gray-900">Website Development</option>
+                  <option value="graphic-designing" className="bg-gray-900">Graphic Designing</option>
+                  <option value="ai-solutions" className="bg-gray-900">AI Solutions</option>
+                  <option value="social-media-management" className="bg-gray-900">Social Media Management</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Message */}
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                Project Details
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                placeholder="Tell us about your project..."
+              />
+            </div>
+
+            {/* Success Message */}
+            {isSubmitted && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3"
+              >
+                <FaCheckCircle className="text-green-400 text-xl flex-shrink-0" />
+                <p className="text-green-400 text-sm">
+                  Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
+                </p>
+              </motion.div>
+            )}
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full btn-primary px-6 py-4 rounded-xl text-base font-semibold text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+            >
+              {isSubmitting ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span>Sending...</span>
+                </>
+              ) : (
+                <>
+                  <span>Send Message</span>
+                  <FaPaperPlane />
+                </>
+              )}
+            </button>
+          </form>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
