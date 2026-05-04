@@ -2,21 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  FaCode,
-  FaMobile,
-  FaBrain,
-  FaPalette,
-  FaLaptopCode,
-  FaBullhorn,
-  FaArrowRight,
-  FaCheckCircle,
-} from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { Code2, Smartphone, Brain, Palette, Monitor, Megaphone, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 
 const services = [
   {
-    icon: FaCode,
+    icon: Code2,
     title: "Web Development",
     description:
       "We build fast, scalable, and visually stunning websites and web applications using modern frameworks like Next.js, React, and Node.js. From landing pages to complex SaaS platforms, we deliver pixel-perfect results.",
@@ -34,7 +24,7 @@ const services = [
     hoverBorder: "hover:border-blue-500/50",
   },
   {
-    icon: FaMobile,
+    icon: Smartphone,
     title: "App Development",
     description:
       "Native and cross-platform mobile applications that deliver seamless experiences on iOS and Android. We use Flutter and React Native to build apps that users love.",
@@ -52,7 +42,7 @@ const services = [
     hoverBorder: "hover:border-purple-500/50",
   },
   {
-    icon: FaBrain,
+    icon: Brain,
     title: "AI Solutions",
     description:
       "Harness the power of artificial intelligence to automate processes, gain insights, and make smarter decisions. We build custom ML models, chatbots, and intelligent automation systems.",
@@ -70,7 +60,7 @@ const services = [
     hoverBorder: "hover:border-green-500/50",
   },
   {
-    icon: FaLaptopCode,
+    icon: Monitor,
     title: "Software Development",
     description:
       "Enterprise-grade software solutions tailored to your specific business needs. We design, develop, and deploy robust systems that streamline operations and boost productivity.",
@@ -88,7 +78,7 @@ const services = [
     hoverBorder: "hover:border-orange-500/50",
   },
   {
-    icon: FaPalette,
+    icon: Palette,
     title: "Graphic Designing",
     description:
       "Eye-catching visual designs that communicate your brand message and captivate your audience. From logos to full brand identities, we create designs that leave a lasting impression.",
@@ -106,7 +96,7 @@ const services = [
     hoverBorder: "hover:border-pink-500/50",
   },
   {
-    icon: FaBullhorn,
+    icon: Megaphone,
     title: "Social Media Management",
     description:
       "Strategic social media campaigns that build your brand presence, engage your audience, and drive measurable results. We manage your online presence so you can focus on your business.",
@@ -169,7 +159,7 @@ export default function ServicesPage() {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-sm font-medium mb-6"
             >
-              <HiSparkles />
+              <Sparkles />
               <span>What We Offer</span>
             </motion.div>
 
@@ -220,7 +210,7 @@ export default function ServicesPage() {
                       className="inline-flex items-center gap-2 btn-primary px-6 py-3 rounded-xl text-sm font-semibold text-white"
                     >
                       <span>Get a Quote</span>
-                      <FaArrowRight />
+                      <ArrowRight />
                     </Link>
                   </div>
 
@@ -232,7 +222,7 @@ export default function ServicesPage() {
                     <ul className="space-y-3">
                       {service.features.map((feature, fi) => (
                         <li key={fi} className="flex items-start gap-3">
-                          <FaCheckCircle className="text-blue-400 mt-0.5 flex-shrink-0 text-sm" />
+                          <CheckCircle2 className="text-blue-400 mt-0.5 flex-shrink-0 text-sm" />
                           <span className="text-gray-300 text-sm">{feature}</span>
                         </li>
                       ))}
@@ -316,7 +306,7 @@ export default function ServicesPage() {
               className="btn-primary px-8 py-4 rounded-xl text-base font-semibold text-white inline-flex items-center gap-3 justify-center"
             >
               <span>Book a Free Consultation</span>
-              <FaArrowRight />
+              <ArrowRight />
             </Link>
           </motion.div>
         </div>

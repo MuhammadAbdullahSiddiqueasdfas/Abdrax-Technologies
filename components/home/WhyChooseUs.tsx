@@ -1,53 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FaAward,
-  FaClock,
-  FaUsers,
-  FaRocket,
-  FaShieldAlt,
-  FaHeadset,
-} from "react-icons/fa";
+import { Award, Clock, Users, Rocket, ShieldCheck, Headphones } from "lucide-react";
 
 const features = [
   {
-    icon: FaAward,
+    icon: Award,
     title: "Expert Team",
     description:
       "Our skilled professionals bring years of experience in cutting-edge technologies and best practices.",
     color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: FaClock,
+    icon: Clock,
     title: "On-Time Delivery",
     description:
       "We value your time and ensure project milestones are met with precision and punctuality.",
     color: "from-purple-500 to-pink-500",
   },
   {
-    icon: FaUsers,
+    icon: Users,
     title: "Client-Centric Approach",
     description:
       "Your vision drives our work. We collaborate closely to ensure your goals are achieved.",
     color: "from-green-500 to-emerald-500",
   },
   {
-    icon: FaRocket,
+    icon: Rocket,
     title: "Innovative Solutions",
     description:
       "We leverage the latest technologies to create forward-thinking solutions that scale.",
     color: "from-orange-500 to-red-500",
   },
   {
-    icon: FaShieldAlt,
+    icon: ShieldCheck,
     title: "Quality Assurance",
     description:
       "Rigorous testing and quality checks ensure your product is reliable and bug-free.",
     color: "from-pink-500 to-rose-500",
   },
   {
-    icon: FaHeadset,
+    icon: Headphones,
     title: "24/7 Support",
     description:
       "Our dedicated support team is always available to assist you whenever you need help.",

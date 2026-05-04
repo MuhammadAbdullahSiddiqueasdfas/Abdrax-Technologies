@@ -2,19 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaPaperPlane,
-  FaCheckCircle,
-  FaMapMarkerAlt,
-  FaEnvelope,
-  FaPhone,
-  FaClock,
-} from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { Send, CheckCircle2, MapPin, Mail, Phone, Clock, Sparkles } from "lucide-react";
 
 const contactInfo = [
   {
-    icon: FaMapMarkerAlt,
+    icon: MapPin,
     title: "Our Location",
     lines: ["Hassan Abdal, Wah", "Pakistan 47040"],
     color: "from-blue-500 to-cyan-500",
@@ -22,7 +14,7 @@ const contactInfo = [
     border: "border-blue-500/20",
   },
   {
-    icon: FaEnvelope,
+    icon: Mail,
     title: "Email Us",
     lines: ["abdraxoffical@gmail.com"],
     href: "mailto:abdraxoffical@gmail.com",
@@ -31,7 +23,7 @@ const contactInfo = [
     border: "border-purple-500/20",
   },
   {
-    icon: FaPhone,
+    icon: Phone,
     title: "Call Us",
     lines: ["+92 370 137 1522"],
     href: "tel:+923701371522",
@@ -40,7 +32,7 @@ const contactInfo = [
     border: "border-green-500/20",
   },
   {
-    icon: FaClock,
+    icon: Clock,
     title: "Working Hours",
     lines: ["Mon – Sat: 9:00 AM – 7:00 PM", "Sunday: By Appointment"],
     color: "from-orange-500 to-red-500",
@@ -99,7 +91,7 @@ export default function ContactPage() {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-sm font-medium mb-6"
             >
-              <HiSparkles />
+              <Sparkles />
               <span>Get In Touch</span>
             </motion.div>
 
@@ -317,7 +309,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3"
                 >
-                  <FaCheckCircle className="text-green-400 text-xl flex-shrink-0" />
+                  <CheckCircle2 className="text-green-400 text-xl flex-shrink-0" />
                   <p className="text-green-400 text-sm">
                     Thank you! Your message has been sent. We&apos;ll get back to you within 24 hours.
                   </p>
@@ -338,7 +330,7 @@ export default function ContactPage() {
                 ) : (
                   <>
                     <span>Send Message</span>
-                    <FaPaperPlane />
+                    <Send />
                   </>
                 )}
               </button>

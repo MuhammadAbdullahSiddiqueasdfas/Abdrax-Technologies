@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaRocket, FaCode, FaMobile, FaBrain, FaLaptopCode, FaPalette } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { Rocket, Code2, Smartphone, Brain, Monitor, Palette, Sparkles } from "lucide-react";
 
 export default function HeroSection() {
   const floatingIcons = [
-    { Icon: FaCode, delay: 0, position: "top-20 left-10", color: "bg-blue-600" },
-    { Icon: FaMobile, delay: 0.2, position: "top-40 right-20", color: "bg-gray-700" },
-    { Icon: FaBrain, delay: 0.4, position: "bottom-32 left-20", color: "bg-blue-500" },
-    { Icon: FaLaptopCode, delay: 0.6, position: "bottom-40 right-32", color: "bg-gray-600" },
-    { Icon: FaPalette, delay: 0.8, position: "top-1/2 right-10", color: "bg-blue-700" },
-    { Icon: FaRocket, delay: 1, position: "bottom-20 right-10", color: "bg-gray-800" },
+    { Icon: Code2, delay: 0, position: "top-20 left-10", color: "bg-blue-600" },
+    { Icon: Smartphone, delay: 0.2, position: "top-40 right-20", color: "bg-gray-700" },
+    { Icon: Brain, delay: 0.4, position: "bottom-32 left-20", color: "bg-blue-500" },
+    { Icon: Monitor, delay: 0.6, position: "bottom-40 right-32", color: "bg-gray-600" },
+    { Icon: Palette, delay: 0.8, position: "top-1/2 right-10", color: "bg-blue-700" },
+    { Icon: Rocket, delay: 1, position: "bottom-20 right-10", color: "bg-gray-800" },
   ];
 
   return (
@@ -61,7 +60,7 @@ export default function HeroSection() {
             transition={{ delay: 0.2 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-sm font-medium"
           >
-            <HiSparkles className="text-blue-400" />
+            <Sparkles className="text-blue-400" />
             <span>Welcome to Abdrax Technologies</span>
           </motion.div>
 

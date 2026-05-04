@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaRocket, FaArrowRight } from "react-icons/fa";
+import { Rocket, ArrowRight } from "lucide-react";
 
 export default function CTASection() {
   return (
@@ -27,7 +27,7 @@ export default function CTASection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 mb-8"
           >
-            <FaRocket className="text-white text-3xl" />
+            <Rocket className="text-white text-3xl" />
           </motion.div>
 
           {/* Heading */}
@@ -49,7 +49,7 @@ export default function CTASection() {
               className="btn-primary px-8 py-4 rounded-xl text-base font-semibold text-white inline-flex items-center gap-3 w-full sm:w-auto justify-center"
             >
               <span>Get Started Now</span>
-              <FaArrowRight />
+              <ArrowRight />
             </Link>
             <Link
               href="/our-work"

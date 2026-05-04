@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { HiMenu, HiX } from "react-icons/hi";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -82,7 +82,7 @@ export default function Navbar() {
             className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition-colors z-[10000] relative"
             aria-label="Toggle menu"
           >
-            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

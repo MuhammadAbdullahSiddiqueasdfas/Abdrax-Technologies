@@ -3,17 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import {
-  FaCode,
-  FaMobile,
-  FaBrain,
-  FaPalette,
-  FaLaptopCode,
-  FaBullhorn,
-  FaArrowRight,
-  FaExternalLinkAlt,
-} from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { Code2, Smartphone, Brain, Palette, Monitor, Megaphone, ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 
 type Category = "All" | "Web" | "Mobile" | "AI" | "Design" | "Software";
 
@@ -38,7 +28,7 @@ const projects: Project[] = [
     description:
       "A full-featured online store with real-time inventory, payment gateway integration, and an admin dashboard for a retail client in Lahore.",
     category: "Web",
-    icon: FaCode,
+    icon: Code2,
     tags: ["Next.js", "Node.js", "MongoDB", "Stripe"],
     color: "from-blue-500 to-cyan-500",
     bg: "bg-blue-500/10",
@@ -51,7 +41,7 @@ const projects: Project[] = [
     description:
       "A cross-platform mobile app for tracking workouts, nutrition, and health metrics with personalized AI-driven recommendations.",
     category: "Mobile",
-    icon: FaMobile,
+    icon: Smartphone,
     tags: ["Flutter", "Firebase", "TensorFlow Lite"],
     color: "from-purple-500 to-pink-500",
     bg: "bg-purple-500/10",
@@ -64,7 +54,7 @@ const projects: Project[] = [
     description:
       "An intelligent chatbot that handles customer queries 24/7, reducing support ticket volume and improving response times for a SaaS company.",
     category: "AI",
-    icon: FaBrain,
+    icon: Brain,
     tags: ["Python", "NLP", "OpenAI API", "React"],
     color: "from-green-500 to-emerald-500",
     bg: "bg-green-500/10",
@@ -77,7 +67,7 @@ const projects: Project[] = [
     description:
       "Complete brand identity design including logo, color palette, typography, and marketing collateral for a fashion e-commerce startup.",
     category: "Design",
-    icon: FaPalette,
+    icon: Palette,
     tags: ["Figma", "Illustrator", "Brand Strategy"],
     color: "from-pink-500 to-rose-500",
     bg: "bg-pink-500/10",
@@ -90,7 +80,7 @@ const projects: Project[] = [
     description:
       "A comprehensive ERP for a private school network covering student records, attendance, fee management, and parent communication.",
     category: "Software",
-    icon: FaLaptopCode,
+    icon: Monitor,
     tags: ["React", "Node.js", "PostgreSQL", "Docker"],
     color: "from-orange-500 to-red-500",
     bg: "bg-orange-500/10",
@@ -103,7 +93,7 @@ const projects: Project[] = [
     description:
       "A 6-month social media strategy and content creation campaign that grew a local restaurant chain's following and drove foot traffic.",
     category: "Design",
-    icon: FaBullhorn,
+    icon: Megaphone,
     tags: ["Instagram", "Facebook", "Content Strategy"],
     color: "from-indigo-500 to-blue-500",
     bg: "bg-indigo-500/10",
@@ -116,7 +106,7 @@ const projects: Project[] = [
     description:
       "A property listing and search platform with map integration, virtual tours, and a CRM for real estate agents.",
     category: "Web",
-    icon: FaCode,
+    icon: Code2,
     tags: ["Next.js", "Google Maps API", "Prisma", "PostgreSQL"],
     color: "from-blue-500 to-cyan-500",
     bg: "bg-blue-500/10",
@@ -129,7 +119,7 @@ const projects: Project[] = [
     description:
       "A business intelligence dashboard with ML-powered sales forecasting and inventory optimization for a manufacturing company.",
     category: "AI",
-    icon: FaBrain,
+    icon: Brain,
     tags: ["Python", "scikit-learn", "React", "D3.js"],
     color: "from-green-500 to-emerald-500",
     bg: "bg-green-500/10",
@@ -142,7 +132,7 @@ const projects: Project[] = [
     description:
       "A full-stack food delivery platform with real-time order tracking, restaurant management, and driver dispatch for a local startup.",
     category: "Mobile",
-    icon: FaMobile,
+    icon: Smartphone,
     tags: ["React Native", "Node.js", "Socket.io", "MongoDB"],
     color: "from-purple-500 to-pink-500",
     bg: "bg-purple-500/10",
@@ -180,7 +170,7 @@ export default function OurWorkPage() {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-sm font-medium mb-6"
             >
-              <HiSparkles />
+              <Sparkles />
               <span>Our Portfolio</span>
             </motion.div>
 
@@ -339,7 +329,7 @@ export default function OurWorkPage() {
             className="text-center p-12 md:p-16 rounded-3xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-white/10"
           >
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 mb-6">
-              <FaExternalLinkAlt className="text-white text-xl" />
+              <ExternalLink className="text-white text-xl" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               <span className="text-white">Your Project Could Be </span>
@@ -354,7 +344,7 @@ export default function OurWorkPage() {
                 className="btn-primary px-8 py-4 rounded-xl text-base font-semibold text-white inline-flex items-center gap-3 w-full sm:w-auto justify-center"
               >
                 <span>Start Your Project</span>
-                <FaArrowRight />
+                <ArrowRight />
               </Link>
               <Link
                 href="/services"

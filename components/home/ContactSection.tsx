@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaPaperPlane, FaCheckCircle } from "react-icons/fa";
+import { Send, CheckCircle2 } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -181,7 +181,7 @@ export default function ContactSection() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3"
               >
-                <FaCheckCircle className="text-green-400 text-xl flex-shrink-0" />
+                <CheckCircle2 className="text-green-400 text-xl flex-shrink-0" />
                 <p className="text-green-400 text-sm">
                   Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
                 </p>
@@ -202,7 +202,7 @@ export default function ContactSection() {
               ) : (
                 <>
                   <span>Send Message</span>
-                  <FaPaperPlane />
+                  <Send />
                 </>
               )}
             </button>

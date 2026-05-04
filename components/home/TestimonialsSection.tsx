@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -87,13 +87,13 @@ export default function TestimonialsSection() {
               <div className="h-full p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-105 relative">
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6 text-blue-500/20 group-hover:text-blue-500/30 transition-colors">
-                  <FaQuoteLeft size={32} />
+                  <Quote size={32} />
                 </div>
 
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-400 text-sm" />
+                  <Star key={i} className="text-yellow-400 text-sm" />
                   ))}
                 </div>
 

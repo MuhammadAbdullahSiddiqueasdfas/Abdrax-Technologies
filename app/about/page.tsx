@@ -2,24 +2,11 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  FaRocket,
-  FaUsers,
-  FaAward,
-  FaLightbulb,
-  FaCode,
-  FaMobile,
-  FaBrain,
-  FaPalette,
-  FaLaptopCode,
-  FaBullhorn,
-  FaArrowRight,
-} from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import { Rocket, Users, Award, Lightbulb, Code2, Smartphone, Brain, Palette, Monitor, Megaphone, ArrowRight, Sparkles } from "lucide-react";
 
 const values = [
   {
-    icon: FaLightbulb,
+    icon: Lightbulb,
     title: "Innovation First",
     description:
       "We stay ahead of the curve, embracing the latest technologies to deliver forward-thinking solutions that give your business a competitive edge.",
@@ -28,7 +15,7 @@ const values = [
     border: "border-yellow-500/20",
   },
   {
-    icon: FaUsers,
+    icon: Users,
     title: "Client Partnership",
     description:
       "We treat every client as a long-term partner. Your success is our success, and we're committed to building relationships that last.",
@@ -37,7 +24,7 @@ const values = [
     border: "border-blue-500/20",
   },
   {
-    icon: FaAward,
+    icon: Award,
     title: "Quality Excellence",
     description:
       "Every line of code, every design element, every deliverable goes through rigorous quality checks to ensure it meets the highest standards.",
@@ -46,7 +33,7 @@ const values = [
     border: "border-purple-500/20",
   },
   {
-    icon: FaRocket,
+    icon: Rocket,
     title: "Agile Delivery",
     description:
       "We move fast without breaking things. Our agile process ensures rapid delivery, transparent communication, and on-time results.",
@@ -84,12 +71,12 @@ const team = [
 ];
 
 const services = [
-  { icon: FaCode, label: "Web Development" },
-  { icon: FaMobile, label: "App Development" },
-  { icon: FaBrain, label: "AI Solutions" },
-  { icon: FaLaptopCode, label: "Software Development" },
-  { icon: FaPalette, label: "Graphic Designing" },
-  { icon: FaBullhorn, label: "Social Media Management" },
+  { icon: Code2, label: "Web Development" },
+  { icon: Smartphone, label: "App Development" },
+  { icon: Brain, label: "AI Solutions" },
+  { icon: Monitor, label: "Software Development" },
+  { icon: Palette, label: "Graphic Designing" },
+  { icon: Megaphone, label: "Social Media Management" },
 ];
 
 export default function AboutPage() {
@@ -113,7 +100,7 @@ export default function AboutPage() {
               transition={{ delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-sm font-medium mb-6"
             >
-              <HiSparkles />
+              <Sparkles />
               <span>About Abdrax Technologies</span>
             </motion.div>
 
@@ -332,7 +319,7 @@ export default function AboutPage() {
                 className="btn-primary px-8 py-4 rounded-xl text-base font-semibold text-white inline-flex items-center gap-3 w-full sm:w-auto justify-center"
               >
                 <span>Get In Touch</span>
-                <FaArrowRight />
+                <ArrowRight />
               </Link>
               <Link
                 href="/services"

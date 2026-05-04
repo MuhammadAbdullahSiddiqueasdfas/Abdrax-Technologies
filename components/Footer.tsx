@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const services = [
   "Web Development",
@@ -96,13 +96,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <HiLocationMarker className="text-blue-400 mt-0.5 flex-shrink-0" size={18} />
+                <MapPin className="text-blue-400 mt-0.5 flex-shrink-0" size={18} />
                 <span className="text-gray-400 text-sm">
                   Hassan Abdal, Wah, Pakistan 47040
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <HiMail className="text-blue-400 flex-shrink-0" size={18} />
+                <Mail className="text-blue-400 flex-shrink-0" size={18} />
                 <a
                   href="mailto:abdraxoffical@gmail.com"
                   className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
@@ -111,7 +111,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <HiPhone className="text-blue-400 flex-shrink-0" size={18} />
+                <Phone className="text-blue-400 flex-shrink-0" size={18} />
                 <a
                   href="tel:+923701371522"
                   className="text-gray-400 hover:text-blue-400 text-sm transition-colors"

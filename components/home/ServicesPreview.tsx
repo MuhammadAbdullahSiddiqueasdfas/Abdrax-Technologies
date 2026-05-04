@@ -2,19 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  FaCode,
-  FaMobile,
-  FaBrain,
-  FaPalette,
-  FaLaptopCode,
-  FaBullhorn,
-} from "react-icons/fa";
-import { HiArrowRight } from "react-icons/hi";
+import { Code2, Smartphone, Brain, Palette, Monitor, Megaphone, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    icon: FaCode,
+    icon: Code2,
     title: "Web Development",
     description:
       "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
@@ -23,7 +15,7 @@ const services = [
     borderColor: "border-blue-500/20",
   },
   {
-    icon: FaMobile,
+    icon: Smartphone,
     title: "App Development",
     description:
       "Native and cross-platform mobile applications that deliver seamless experiences on iOS and Android devices.",
@@ -32,7 +24,7 @@ const services = [
     borderColor: "border-purple-500/20",
   },
   {
-    icon: FaBrain,
+    icon: Brain,
     title: "AI Solutions",
     description:
       "Intelligent automation and machine learning solutions that transform your business operations and decision-making.",
@@ -41,7 +33,7 @@ const services = [
     borderColor: "border-green-500/20",
   },
   {
-    icon: FaLaptopCode,
+    icon: Monitor,
     title: "Software Development",
     description:
       "Enterprise-grade software solutions tailored to your specific business needs and workflows.",
@@ -50,7 +42,7 @@ const services = [
     borderColor: "border-orange-500/20",
   },
   {
-    icon: FaPalette,
+    icon: Palette,
     title: "Graphic Designing",
     description:
       "Eye-catching visual designs that communicate your brand message and captivate your audience.",
@@ -59,7 +51,7 @@ const services = [
     borderColor: "border-pink-500/20",
   },
   {
-    icon: FaBullhorn,
+    icon: Megaphone,
     title: "Social Media Management",
     description:
       "Strategic social media campaigns that build your brand presence and engage your target audience.",
@@ -129,7 +121,7 @@ export default function ServicesPreview() {
                   className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group-hover:gap-3 duration-300"
                 >
                   Learn More
-                  <HiArrowRight className="text-lg" />
+                  <ArrowRight className="text-lg" />
                 </Link>
               </div>
             </motion.div>
@@ -149,7 +141,7 @@ export default function ServicesPreview() {
             className="inline-flex items-center gap-2 btn-primary px-8 py-4 rounded-xl text-base font-semibold text-white"
           >
             <span>View All Services</span>
-            <HiArrowRight className="text-xl" />
+            <ArrowRight className="text-xl" />
           </Link>
         </motion.div>
       </div>
