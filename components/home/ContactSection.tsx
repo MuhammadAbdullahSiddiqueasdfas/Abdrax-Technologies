@@ -14,46 +14,47 @@ export default function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
+    try {
+      const res = await fetch("https://formspree.io/f/mykoeagj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    }, 1500);
+      if (res.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+        setTimeout(() => setIsSubmitted(false), 6000);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact-form" className="py-24 bg-dark-900 relative overflow-hidden">
-      {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +71,6 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        {/* Form */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,6 @@ export default function ContactSection() {
             className="p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Full Name *
@@ -99,7 +98,6 @@ export default function ContactSection() {
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Email Address *
@@ -118,7 +116,6 @@ export default function ContactSection() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              {/* Phone */}
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                   Phone Number
@@ -134,7 +131,6 @@ export default function ContactSection() {
                 />
               </div>
 
-              {/* Service */}
               <div>
                 <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
                   Service Needed *
@@ -145,7 +141,7 @@ export default function ContactSection() {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-[#0d0d0d] border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
                 >
                   <option value="" className="bg-gray-900">Select a service</option>
                   <option value="software-development" className="bg-gray-900">Software Development</option>
@@ -158,7 +154,6 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Message */}
             <div className="mb-6">
               <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                 Project Details
@@ -181,14 +176,24 @@ export default function ContactSection() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3"
               >
-                <CheckCircle2 className="text-green-400 text-xl flex-shrink-0" />
+                <CheckCircle2 className="text-green-400 flex-shrink-0" size={20} />
                 <p className="text-green-400 text-sm">
-                  Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
+                  Thank you! Your message has been sent. We&apos;ll get back to you soon.
                 </p>
               </motion.div>
             )}
 
-            {/* Submit Button */}
+            {/* Error Message */}
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20"
+              >
+                <p className="text-red-400 text-sm">{error}</p>
+              </motion.div>
+            )}
+
             <button
               type="submit"
               disabled={isSubmitting}
@@ -202,7 +207,7 @@ export default function ContactSection() {
               ) : (
                 <>
                   <span>Send Message</span>
-                  <Send />
+                  <Send size={18} />
                 </>
               )}
             </button>

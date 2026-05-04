@@ -52,6 +52,7 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -62,13 +63,27 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
-    setTimeout(() => {
+    try {
+      const res = await fetch("https://formspree.io/f/mykoeagj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
+        setTimeout(() => setIsSubmitted(false), 6000);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please check your connection.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
-      setTimeout(() => setIsSubmitted(false), 6000);
-    }, 1500);
+    }
   };
 
   return (
@@ -313,6 +328,17 @@ export default function ContactPage() {
                   <p className="text-green-400 text-sm">
                     Thank you! Your message has been sent. We&apos;ll get back to you within 24 hours.
                   </p>
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center gap-3"
+                >
+                  <p className="text-red-400 text-sm">{error}</p>
                 </motion.div>
               )}
 
