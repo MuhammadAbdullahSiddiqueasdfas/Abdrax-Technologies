@@ -31,9 +31,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Abdrax Technologies"
-                width={160}
-                height={50}
-                className="h-12 w-auto object-contain"
+                width={280}
+                height={80}
+                className="h-20 w-auto object-contain"
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
