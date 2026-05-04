@@ -127,12 +127,9 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-center">
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Abdrax Technologies. All rights reserved.
-          </p>
-          <p className="text-gray-500 text-sm">
-            Built with ❤️ in Pakistan
           </p>
         </div>
       </div>
