@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden">
       <HeroSection />
       <StatsSection />
       <ServicesPreview />

@@ -203,7 +203,7 @@ export default function RootLayout({
         <meta name="rating" content="general" />
         <link rel="canonical" href={siteUrl} />
       </head>
-      <body className="bg-black text-white antialiased">
+      <body className="bg-black text-white antialiased overflow-x-hidden">
         <Script
           id="json-ld"
           type="application/ld+json"
@@ -211,7 +211,7 @@ export default function RootLayout({
         />
         <ScrollToTop />
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

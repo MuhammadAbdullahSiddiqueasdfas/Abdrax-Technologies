@@ -28,11 +28,11 @@ const technologies = [
 
 export default function TechStack() {
   return (
-    <section className="py-24 bg-dark-800 relative overflow-hidden">
+    <section className="py-24 bg-dark-800 relative overflow-hidden w-full">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_70%)]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export default function TechStack() {
         </motion.div>
 
         {/* Scrolling Technologies */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-full">
           <div className="flex gap-12 tech-scroll">
             {/* First set */}
             {technologies.map((tech, index) => {
