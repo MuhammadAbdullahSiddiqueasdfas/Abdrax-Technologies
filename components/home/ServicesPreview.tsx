@@ -1,63 +1,41 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Code2, Smartphone, Brain, Palette, Monitor, Megaphone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import BorderGlow from "@/components/BorderGlow";
 
 const services = [
   {
-    icon: Code2,
     title: "Web Development",
     description:
       "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
-    color: "from-blue-500 to-cyan-500",
-    bgColor: "bg-blue-500/10",
-    borderColor: "border-blue-500/20",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
-    icon: Smartphone,
     title: "App Development",
     description:
       "Native and cross-platform mobile applications that deliver seamless experiences on iOS and Android devices.",
-    color: "from-purple-500 to-pink-500",
-    bgColor: "bg-purple-500/10",
-    borderColor: "border-purple-500/20",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
   },
   {
-    icon: Brain,
     title: "AI Solutions",
     description:
       "Intelligent automation and machine learning solutions that transform your business operations and decision-making.",
-    color: "from-green-500 to-emerald-500",
-    bgColor: "bg-green-500/10",
-    borderColor: "border-green-500/20",
+    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80",
   },
   {
-    icon: Monitor,
     title: "Software Development",
     description:
       "Enterprise-grade software solutions tailored to your specific business needs and workflows.",
-    color: "from-orange-500 to-red-500",
-    bgColor: "bg-orange-500/10",
-    borderColor: "border-orange-500/20",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
   },
   {
-    icon: Palette,
     title: "Graphic Designing",
     description:
       "Eye-catching visual designs that communicate your brand message and captivate your audience.",
-    color: "from-pink-500 to-rose-500",
-    bgColor: "bg-pink-500/10",
-    borderColor: "border-pink-500/20",
-  },
-  {
-    icon: Megaphone,
-    title: "Social Media Management",
-    description:
-      "Strategic social media campaigns that build your brand presence and engage your target audience.",
-    color: "from-indigo-500 to-blue-500",
-    bgColor: "bg-indigo-500/10",
-    borderColor: "border-indigo-500/20",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",
   },
 ];
 
@@ -97,33 +75,50 @@ export default function ServicesPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <div
-                className={`h-full p-8 rounded-2xl ${service.bgColor} border ${service.borderColor} hover:border-opacity-50 transition-all duration-300 hover:transform hover:scale-105`}
+              <BorderGlow
+                borderRadius={16}
+                glowRadius={30}
+                glowColor="210 100 60"
+                colors={['#3b82f6', '#60a5fa', '#93c5fd']}
+                fillOpacity={0.2}
               >
-                {/* Icon */}
-                <div
-                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <service.icon className="text-white text-2xl" />
+                <div className="h-full rounded-2xl bg-white/5 transition-all duration-300 overflow-hidden hover:transform hover:scale-105">
+                  {/* Image */}
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      unoptimized
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                    
+                    {/* Title Overlay */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-xl font-bold text-white">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                      {service.description}
+                    </p>
+
+                    {/* Learn More Link */}
+                    <Link
+                      href="/services"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group-hover:gap-3 duration-300"
+                    >
+                      Learn More
+                      <ArrowRight className="text-lg" />
+                    </Link>
+                  </div>
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                  {service.description}
-                </p>
-
-                {/* Learn More Link */}
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group-hover:gap-3 duration-300"
-                >
-                  Learn More
-                  <ArrowRight className="text-lg" />
-                </Link>
-              </div>
+              </BorderGlow>
             </motion.div>
           ))}
         </div>

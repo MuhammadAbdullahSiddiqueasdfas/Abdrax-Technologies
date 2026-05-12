@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Code2, Smartphone, Brain, Palette, Monitor, Megaphone, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import BorderGlow from "@/components/BorderGlow";
+import { Code2, Smartphone, Brain, Palette, Monitor, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 
 const services = [
   {
@@ -95,24 +96,6 @@ const services = [
     borderColor: "border-pink-500/20",
     hoverBorder: "hover:border-pink-500/50",
   },
-  {
-    icon: Megaphone,
-    title: "Social Media Management",
-    description:
-      "Strategic social media campaigns that build your brand presence, engage your audience, and drive measurable results. We manage your online presence so you can focus on your business.",
-    features: [
-      "Social media strategy & planning",
-      "Content creation & scheduling",
-      "Community management",
-      "Paid advertising campaigns",
-      "Analytics & performance reporting",
-      "Influencer outreach",
-    ],
-    color: "from-indigo-500 to-blue-500",
-    bgColor: "bg-indigo-500/10",
-    borderColor: "border-indigo-500/20",
-    hoverBorder: "hover:border-indigo-500/50",
-  },
 ];
 
 const process = [
@@ -188,48 +171,54 @@ export default function ServicesPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.05 }}
             >
-              <div
-                className={`p-8 md:p-10 rounded-2xl ${service.bgColor} border ${service.borderColor} ${service.hoverBorder} transition-all duration-300`}
+              <BorderGlow
+                borderRadius={16}
+                glowRadius={30}
+                glowColor="210 100 60"
+                colors={['#3b82f6', '#60a5fa', '#93c5fd']}
+                fillOpacity={0.2}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                  {/* Left */}
-                  <div>
-                    <div
-                      className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5`}
-                    >
-                      <service.icon className="text-white text-2xl" />
+                <div className={`p-8 md:p-10 rounded-2xl ${service.bgColor} transition-all duration-300`}>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    {/* Left */}
+                    <div>
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-5`}
+                      >
+                        <service.icon className="text-white text-2xl" />
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                        {service.title}
+                      </h2>
+                      <p className="text-gray-400 leading-relaxed mb-6">
+                        {service.description}
+                      </p>
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-2 btn-primary px-6 py-3 rounded-xl text-sm font-semibold text-white"
+                      >
+                        <span>Get a Quote</span>
+                        <ArrowRight />
+                      </Link>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                      {service.title}
-                    </h2>
-                    <p className="text-gray-400 leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 btn-primary px-6 py-3 rounded-xl text-sm font-semibold text-white"
-                    >
-                      <span>Get a Quote</span>
-                      <ArrowRight />
-                    </Link>
-                  </div>
 
-                  {/* Right: Features */}
-                  <div>
-                    <h3 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">
-                      What&apos;s Included
-                    </h3>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, fi) => (
-                        <li key={fi} className="flex items-start gap-3">
-                          <CheckCircle2 className="text-blue-400 mt-0.5 flex-shrink-0 text-sm" />
-                          <span className="text-gray-300 text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Right: Features */}
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">
+                        What&apos;s Included
+                      </h3>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, fi) => (
+                          <li key={fi} className="flex items-start gap-3">
+                            <CheckCircle2 className="text-blue-400 mt-0.5 flex-shrink-0 text-sm" />
+                            <span className="text-gray-300 text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </BorderGlow>
             </motion.div>
           ))}
         </div>

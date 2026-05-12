@@ -15,7 +15,7 @@ const testimonials = [
     name: "Fatima Khan",
     role: "Founder, StyleHub",
     image: "👩‍💼",
-    rating: 5,
+    rating: 4,
     text: "The mobile app they developed for our e-commerce business is outstanding. The user interface is intuitive, and the performance is flawless. Our sales have increased by 40% since launch!",
   },
   {
@@ -29,8 +29,8 @@ const testimonials = [
     name: "Ayesha Malik",
     role: "Marketing Manager, BrandWise",
     image: "👩‍🎨",
-    rating: 5,
-    text: "Their graphic design and social media management services have elevated our brand presence significantly. The creative team is talented, responsive, and understands our vision perfectly.",
+    rating: 4,
+    text: "Their graphic design services have elevated our brand presence significantly. The creative team is talented, responsive, and understands our vision perfectly.",
   },
   {
     name: "Usman Ali",
@@ -43,7 +43,7 @@ const testimonials = [
     name: "Zainab Ahmed",
     role: "Owner, EduTech Academy",
     image: "👩‍🏫",
-    rating: 5,
+    rating: 4,
     text: "The team at Abdrax Technologies built our learning management system with incredible precision. Their support throughout the development process was exceptional. A truly reliable partner!",
   },
 ];
@@ -92,8 +92,12 @@ export default function TestimonialsSection() {
 
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="text-yellow-400 text-sm" />
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className={`text-sm ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-600'}`}
+                      size={16}
+                    />
                   ))}
                 </div>
 

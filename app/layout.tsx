@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Abdrax Technologies",
   },
   description:
-    "Abdrax Technologies — Pakistan's trusted software house for web development, mobile app development, AI solutions, software development, graphic designing & social media management. Based in Hassan Abdal, Wah.",
+    "Abdrax Technologies — Pakistan's trusted software house for web development, mobile app development, AI solutions, software development, and graphic designing. Based in Hassan Abdal, Wah.",
   keywords: [
     "Abdrax Technologies",
     "software house Pakistan",
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     "AI solutions Pakistan",
     "software development company Pakistan",
     "graphic designing Pakistan",
-    "social media management Pakistan",
     "best software house Pakistan",
     "website development Pakistan",
     "Flutter app development Pakistan",
@@ -106,7 +105,7 @@ const jsonLd = {
         url: `${siteUrl}/logo.png`,
       },
       description:
-        "Pakistan's trusted software house for web development, mobile app development, AI solutions, software development, graphic designing and social media management.",
+        "Pakistan's trusted software house for web development, mobile app development, AI solutions, software development, and graphic designing.",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Hassan Abdal",
@@ -133,7 +132,6 @@ const jsonLd = {
         "AI Solutions",
         "Software Development",
         "Graphic Designing",
-        "Social Media Management",
       ],
     },
     {

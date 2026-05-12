@@ -3,18 +3,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Rocket, Code2, Smartphone, Brain, Monitor, Palette, Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const floatingIcons = [
-  { Icon: Code2, delay: 0, color: "bg-blue-600", label: "Web Dev" },
-  { Icon: Smartphone, delay: 0.3, color: "bg-purple-600", label: "Mobile" },
-  { Icon: Brain, delay: 0.6, color: "bg-green-600", label: "AI" },
-  { Icon: Monitor, delay: 0.9, color: "bg-orange-600", label: "Software" },
-  { Icon: Palette, delay: 1.2, color: "bg-pink-600", label: "Design" },
-  { Icon: Rocket, delay: 1.5, color: "bg-cyan-600", label: "Launch" },
+const heroImages = [
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80", // Code on laptop screen
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80", // Developer coding
+  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80", // Programming code
+  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80", // Laptop with code
+  "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80", // Developer workspace
 ];
 
 export default function HeroSection() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black">
       {/* Background grid */}
@@ -83,9 +93,9 @@ export default function HeroSection() {
               className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-3 pt-4"
             >
               {[
-                { number: "50+", label: "Projects" },
-                { number: "40+", label: "Clients" },
-                { number: "6+", label: "Services" },
+                { number: "42+", label: "Projects" },
+                { number: "30+", label: "Clients" },
+                { number: "5+", label: "Years Exp" },
                 { number: "24/7", label: "Support" },
               ].map((stat, i) => (
                 <div
@@ -109,17 +119,26 @@ export default function HeroSection() {
             {/* Glow behind image */}
             <div className="absolute inset-0 bg-blue-500/10 rounded-3xl blur-3xl scale-110" />
 
-            {/* Main tech image */}
+            {/* Main tech image with auto-rotation */}
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10">
-              <Image
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
-                alt="Software Development - Code on Screen"
-                width={800}
-                height={500}
-                className="w-full h-auto object-cover"
-                priority
-                unoptimized
-              />
+              <motion.div
+                key={currentImageIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative w-full h-[400px] sm:h-[500px]"
+              >
+                <Image
+                  src={heroImages[currentImageIndex]}
+                  alt="Software Development & Technology Solutions"
+                  fill
+                  className="object-cover"
+                  priority
+                  unoptimized
+                />
+              </motion.div>
+              
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
@@ -134,37 +153,21 @@ export default function HeroSection() {
                   </span>
                 ))}
               </div>
-            </div>
 
-            {/* Floating icon cards — visible on lg+ */}
-            {floatingIcons.map(({ Icon, delay, color, label }, i) => {
-              const positions = [
-                "-top-4 -left-4",
-                "-top-4 right-8",
-                "top-1/3 -left-6",
-                "top-1/3 -right-6",
-                "-bottom-4 left-8",
-                "-bottom-4 -right-4",
-              ];
-              return (
-                <motion.div
-                  key={i}
-                  className={`absolute ${positions[i]} hidden lg:flex flex-col items-center gap-1`}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 + delay, duration: 0.4 }}
-                >
-                  <motion.div
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3, delay, repeat: Infinity, ease: "easeInOut" }}
-                    className={`p-3 rounded-xl ${color} shadow-lg`}
-                  >
-                    <Icon className="text-white" size={20} />
-                  </motion.div>
-                  <span className="text-xs text-gray-400 font-medium">{label}</span>
-                </motion.div>
-              );
-            })}
+              {/* Image indicator dots */}
+              <div className="absolute top-4 right-4 flex gap-1.5">
+                {heroImages.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? "bg-blue-500 w-6"
+                        : "bg-white/30"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

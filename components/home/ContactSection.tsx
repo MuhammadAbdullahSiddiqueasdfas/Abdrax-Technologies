@@ -149,7 +149,6 @@ export default function ContactSection() {
                   <option value="website-development" className="bg-gray-900">Website Development</option>
                   <option value="graphic-designing" className="bg-gray-900">Graphic Designing</option>
                   <option value="ai-solutions" className="bg-gray-900">AI Solutions</option>
-                  <option value="social-media-management" className="bg-gray-900">Social Media Management</option>
                 </select>
               </div>
             </div>

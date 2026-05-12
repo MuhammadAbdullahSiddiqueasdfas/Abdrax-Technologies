@@ -8,7 +8,6 @@ const services = [
   "AI Solutions",
   "Software Development",
   "Graphic Designing",
-  "Social Media Management",
 ];
 
 const quickLinks = [
@@ -107,10 +106,10 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="text-blue-400 flex-shrink-0" size={18} />
                 <a
-                  href="tel:+923701371522"
+                  href="tel:+923180057581"
                   className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
                 >
-                  +92 370 137 1522
+                  +92 318 0057581
                 </a>
               </li>
             </ul>

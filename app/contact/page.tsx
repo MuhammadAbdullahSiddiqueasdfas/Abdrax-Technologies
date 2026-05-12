@@ -273,7 +273,6 @@ export default function ContactPage() {
                     <option value="ai-solutions" className="bg-gray-900">AI Solutions</option>
                     <option value="software-development" className="bg-gray-900">Software Development</option>
                     <option value="graphic-designing" className="bg-gray-900">Graphic Designing</option>
-                    <option value="social-media-management" className="bg-gray-900">Social Media Management</option>
                     <option value="other" className="bg-gray-900">Other</option>
                   </select>
                 </div>

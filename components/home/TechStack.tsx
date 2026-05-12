@@ -1,40 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPython,
-  SiTensorflow,
-  SiMongodb,
-  SiPostgresql,
-  SiDocker,
-  SiFigma,
-  SiTailwindcss,
-  SiTypescript,
-  SiFlutter,
-  SiFirebase,
-  SiGraphql,
-  SiKubernetes,
-} from "react-icons/si";
+import * as SiIcons from "react-icons/si";
 
 const technologies = [
-  { Icon: SiReact, name: "React", color: "#61DAFB" },
-  { Icon: SiNextdotjs, name: "Next.js", color: "#FFFFFF" },
-  { Icon: SiNodedotjs, name: "Node.js", color: "#339933" },
-  { Icon: SiPython, name: "Python", color: "#3776AB" },
-  { Icon: SiTensorflow, name: "TensorFlow", color: "#FF6F00" },
-  { Icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-  { Icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
-  { Icon: SiDocker, name: "Docker", color: "#2496ED" },
-  { Icon: SiFigma, name: "Figma", color: "#F24E1E" },
-  { Icon: SiTailwindcss, name: "Tailwind", color: "#06B6D4" },
-  { Icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
-  { Icon: SiFlutter, name: "Flutter", color: "#02569B" },
-  { Icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
-  { Icon: SiGraphql, name: "GraphQL", color: "#E10098" },
-  { Icon: SiKubernetes, name: "Kubernetes", color: "#326CE5" },
+  { iconName: "SiReact", name: "React", color: "#61DAFB" },
+  { iconName: "SiNextdotjs", name: "Next.js", color: "#FFFFFF" },
+  { iconName: "SiNodedotjs", name: "Node.js", color: "#339933" },
+  { iconName: "SiPython", name: "Python", color: "#3776AB" },
+  { iconName: "SiTensorflow", name: "TensorFlow", color: "#FF6F00" },
+  { iconName: "SiMongodb", name: "MongoDB", color: "#47A248" },
+  { iconName: "SiPostgresql", name: "PostgreSQL", color: "#4169E1" },
+  { iconName: "SiDocker", name: "Docker", color: "#2496ED" },
+  { iconName: "SiFigma", name: "Figma", color: "#F24E1E" },
+  { iconName: "SiTailwindcss", name: "Tailwind", color: "#06B6D4" },
+  { iconName: "SiTypescript", name: "TypeScript", color: "#3178C6" },
+  { iconName: "SiFlutter", name: "Flutter", color: "#02569B" },
+  { iconName: "SiFirebase", name: "Firebase", color: "#FFCA28" },
+  { iconName: "SiGraphql", name: "GraphQL", color: "#E10098" },
+  { iconName: "SiKubernetes", name: "Kubernetes", color: "#326CE5" },
+  { iconName: "SiAws", name: "AWS", color: "#FF9900" },
+  { iconName: "SiGooglecloud", name: "Google Cloud", color: "#4285F4" },
+  { iconName: "SiRedis", name: "Redis", color: "#DC382D" },
+  { iconName: "SiGit", name: "Git", color: "#F05032" },
+  { iconName: "SiJavascript", name: "JavaScript", color: "#F7DF1E" },
 ];
 
 export default function TechStack() {
@@ -61,29 +50,71 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        {/* Technologies Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="group"
-            >
-              <div className="aspect-square p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-center justify-center gap-3 hover:bg-white/10">
-                <tech.Icon
-                  className="text-4xl transition-all duration-300"
-                  style={{ color: tech.color }}
-                />
-                <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-medium">
-                  {tech.name}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+        {/* Scrolling Technologies */}
+        <div className="relative overflow-hidden">
+          <div className="flex gap-12 tech-scroll">
+            {/* First set */}
+            {technologies.map((tech, index) => {
+              const IconComponent = (SiIcons as any)[tech.iconName];
+              
+              if (!IconComponent) {
+                return null;
+              }
+              
+              return (
+                <motion.div
+                  key={`first-${index}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="flex-shrink-0 group"
+                >
+                  <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110 min-w-[120px]">
+                    <IconComponent
+                      className="text-5xl transition-all duration-300"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-medium whitespace-nowrap">
+                      {tech.name}
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
+            {/* Duplicate set for seamless loop */}
+            {technologies.map((tech, index) => {
+              const IconComponent = (SiIcons as any)[tech.iconName];
+              
+              if (!IconComponent) {
+                return null;
+              }
+              
+              return (
+                <motion.div
+                  key={`second-${index}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="flex-shrink-0 group"
+                >
+                  <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-110 min-w-[120px]">
+                    <IconComponent
+                      className="text-5xl transition-all duration-300"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-medium whitespace-nowrap">
+                      {tech.name}
+                    </span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+          {/* Fade edges */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none" />
         </div>
 
         {/* Bottom Text */}
@@ -99,6 +130,23 @@ export default function TechStack() {
           </p>
         </motion.div>
       </div>
+
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .tech-scroll {
+          animation: scroll 25s linear infinite;
+        }
+        .tech-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}} />
     </section>
   );
 }

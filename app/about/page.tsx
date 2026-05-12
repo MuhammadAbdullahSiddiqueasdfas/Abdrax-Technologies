@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Rocket, Users, Award, Lightbulb, Code2, Smartphone, Brain, Palette, Monitor, Megaphone, ArrowRight, Sparkles } from "lucide-react";
+import { Rocket, Users, Award, Lightbulb, Code2, Smartphone, Brain, Palette, Monitor, ArrowRight, Sparkles } from "lucide-react";
 
 const values = [
   {
@@ -76,7 +76,6 @@ const services = [
   { icon: Brain, label: "AI Solutions" },
   { icon: Monitor, label: "Software Development" },
   { icon: Palette, label: "Graphic Designing" },
-  { icon: Megaphone, label: "Social Media Management" },
 ];
 
 export default function AboutPage() {
@@ -147,7 +146,7 @@ export default function AboutPage() {
                   agency trusted by clients across Pakistan and beyond.
                 </p>
                 <p>
-                  With over 50 projects delivered and 40+ happy clients, we continue to
+                  With over 42 projects delivered and 30+ happy clients, we continue to
                   push boundaries, embrace new technologies, and deliver solutions that
                   make a measurable difference.
                 </p>
@@ -155,9 +154,9 @@ export default function AboutPage() {
 
               <div className="mt-8 grid grid-cols-3 gap-6">
                 {[
-                  { number: "50+", label: "Projects" },
-                  { number: "40+", label: "Clients" },
-                  { number: "6+", label: "Services" },
+                  { number: "42+", label: "Projects" },
+                  { number: "30+", label: "Clients" },
+                  { number: "5+", label: "Years Exp" },
                 ].map((stat, i) => (
                   <div
                     key={i}
