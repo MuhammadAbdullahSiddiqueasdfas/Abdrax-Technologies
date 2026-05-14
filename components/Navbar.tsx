@@ -30,9 +30,7 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-[9999] bg-black/95 backdrop-blur-md border-b border-gray-800"
-    >
+    <nav className="fixed top-0 left-0 right-0 z-[9999] bg-black/95 backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 sm:h-24 lg:h-28">
           {/* Logo */}
@@ -40,10 +38,11 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Abdrax Technologies"
-              width={500}
-              height={140}
-              className="h-12 sm:h-16 lg:h-20 w-auto object-contain"
+              width={180}
+              height={60}
+              className="h-6 sm:h-5 lg:h-10 w-auto object-contain"
               priority
+              style={{ width: "auto", height: "auto" }}
             />
           </Link>
 

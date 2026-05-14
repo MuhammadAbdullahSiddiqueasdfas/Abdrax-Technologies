@@ -76,20 +76,21 @@ export default function ServicesPreview() {
               className="group"
             >
               <BorderGlow
+                className="h-full"
                 borderRadius={16}
                 glowRadius={30}
                 glowColor="210 100 60"
                 colors={['#3b82f6', '#60a5fa', '#93c5fd']}
                 fillOpacity={0.2}
               >
-                <div className="h-full rounded-2xl bg-white/5 transition-all duration-300 overflow-hidden hover:transform hover:scale-105">
+                <div className="h-full rounded-2xl bg-white/5 transition-all duration-300 overflow-hidden flex flex-col">
                   {/* Image */}
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover transition-transform duration-500"
                       unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
@@ -103,15 +104,15 @@ export default function ServicesPreview() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                  <div className="p-6 flex-1 flex flex-col">
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
                       {service.description}
                     </p>
 
                     {/* Learn More Link */}
                     <Link
                       href="/services"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group-hover:gap-3 duration-300"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-300"
                     >
                       Learn More
                       <ArrowRight className="text-lg" />
