@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import HeroSection from "@/components/home/HeroSection";
-import StatsSection from "@/components/home/StatsSection";
-import ServicesPreview from "@/components/home/ServicesPreview";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
-import TechStack from "@/components/home/TechStack";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
-import CTASection from "@/components/home/CTASection";
-import ContactSection from "@/components/home/ContactSection";
+import HeroSection from "@/app/home/HeroSection";
+import StatsSection from "@/app/home/StatsSection";
+import ServicesPreview from "@/app/home/ServicesPreview";
+import WhyChooseUs from "@/app/home/WhyChooseUs";
+import TechStack from "@/app/home/TechStack";
+import TestimonialsSection from "@/app/home/TestimonialsSection";
+import CTASection from "@/app/home/CTASection";
+import ContactSection from "@/app/home/ContactSection";
 
 export const metadata: Metadata = {
   title: "Abdrax Technologies | #1 Software House in Pakistan",

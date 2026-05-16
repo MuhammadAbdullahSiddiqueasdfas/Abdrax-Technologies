@@ -1,0 +1,80 @@
+"use client";
+
+import { motion } from "framer-motion";
+import * as SiIcons from "react-icons/si";
+import LogoLoop from "@/components/LogoLoop";
+
+const technologies = [
+  { iconName: "SiNextdotjs", name: "Next.js", color: "#FFFFFF" },
+  { iconName: "SiExpress", name: "Express", color: "#FFFFFF" },
+  { iconName: "SiHtml5", name: "HTML5", color: "#FFFFFF" },
+  { iconName: "SiCss3", name: "CSS3", color: "#FFFFFF" },
+  { iconName: "SiJavascript", name: "JavaScript", color: "#FFFFFF" },
+  { iconName: "SiMongodb", name: "MongoDB", color: "#FFFFFF" },
+  { iconName: "SiPostgresql", name: "PostgreSQL", color: "#FFFFFF" },
+  { iconName: "SiTailwindcss", name: "Tailwind", color: "#FFFFFF" },
+];
+
+export default function TechStack() {
+  return (
+    <section className="py-24 bg-dark-800 relative overflow-hidden w-full">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_70%)]" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+            Our Tech Stack
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            We use cutting-edge technologies to build robust and scalable solutions
+          </p>
+        </motion.div>
+
+        {/* Scrolling Technologies */}
+        <div className="relative w-full">
+          <LogoLoop
+            logos={technologies
+              .filter((tech) => (SiIcons as any)[tech.iconName])
+              .map((tech) => {
+                const IconComponent = (SiIcons as any)[tech.iconName];
+                return {
+                  node: <IconComponent style={{ color: tech.color }} />,
+                  title: tech.name,
+                };
+              })}
+            speed={40}
+            direction="left"
+            logoHeight={60}
+            gap={60}
+            hoverSpeed={0}
+            scaleOnHover={true}
+            fadeOut={true}
+            fadeOutColor="#0a0a0a"
+          />
+        </div>
+
+        {/* Bottom Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <p className="text-gray-500 text-sm">
+            And many more technologies to meet your specific needs
+          </p>
+        </motion.div>
+      </div>
+
+    </section>
+  );
+}
