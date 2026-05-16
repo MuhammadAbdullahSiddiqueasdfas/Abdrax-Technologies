@@ -35,7 +35,6 @@ export default function HeroSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
           {/* ── LEFT: Text Content ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -59,13 +58,14 @@ export default function HeroSection() {
               <span className="text-white">Transform Your</span>
               <br />
               <span className="text-white">Ideas Into </span>
-              <span className="gradient-text">Digital Reality</span>
+              <span className="text-cyan-400">Digital Reality</span>
             </h1>
 
             {/* Description */}
             <p className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              We craft cutting-edge software solutions, stunning websites, powerful
-              mobile apps, and intelligent AI systems that drive your business forward.
+              We craft cutting-edge software solutions, stunning websites,
+              powerful mobile apps, and intelligent AI systems that drive your
+              business forward.
             </p>
 
             {/* CTA Buttons */}
@@ -102,8 +102,12 @@ export default function HeroSection() {
                   key={i}
                   className="p-3 sm:p-4 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all text-center"
                 >
-                  <div className="text-xl sm:text-2xl font-bold text-blue-400">{stat.number}</div>
-                  <div className="text-xs text-gray-500 mt-0.5">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-400">
+                    {stat.number}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-0.5">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </motion.div>
@@ -138,13 +142,20 @@ export default function HeroSection() {
                   unoptimized
                 />
               </motion.div>
-              
+
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
               {/* Floating tech badges over image */}
               <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                {["React", "Next.js", "Flutter", "Python", "AI/ML", "Node.js"].map((tech) => (
+                {[
+                  "React",
+                  "Next.js",
+                  "Flutter",
+                  "Python",
+                  "AI/ML",
+                  "Node.js",
+                ].map((tech) => (
                   <span
                     key={tech}
                     className="px-2.5 py-1 rounded-lg bg-black/70 border border-white/20 text-white text-xs font-medium backdrop-blur-sm"

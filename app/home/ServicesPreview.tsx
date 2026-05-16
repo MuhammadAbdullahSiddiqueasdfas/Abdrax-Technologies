@@ -11,39 +11,42 @@ const services = [
     title: "Web Development",
     description:
       "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
   },
   {
     title: "App Development",
     description:
       "Native and cross-platform mobile applications that deliver seamless experiences on iOS and Android devices.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
   },
   {
     title: "AI Solutions",
     description:
       "Intelligent automation and machine learning solutions that transform your business operations and decision-making.",
-    image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&q=80",
   },
   {
     title: "Software Development",
     description:
       "Enterprise-grade software solutions tailored to your specific business needs and workflows.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
   },
   {
     title: "Graphic Designing",
     description:
       "Eye-catching visual designs that communicate your brand message and captivate your audience.",
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",
   },
 ];
 
 export default function ServicesPreview() {
   return (
     <section className="py-24 bg-dark-800 relative overflow-hidden">
-
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -55,10 +58,11 @@ export default function ServicesPreview() {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             <span className="text-white">Our </span>
-            <span className="gradient-text">Services</span>
+            <span className="text-cyan-400">Services</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Comprehensive digital solutions to elevate your business to new heights
+            Comprehensive digital solutions to elevate your business to new
+            heights
           </p>
         </motion.div>
 
@@ -78,7 +82,7 @@ export default function ServicesPreview() {
                 borderRadius={16}
                 glowRadius={30}
                 glowColor="210 100 60"
-                colors={['#3b82f6', '#60a5fa', '#93c5fd']}
+                colors={["#3b82f6", "#60a5fa", "#93c5fd"]}
                 fillOpacity={0.2}
               >
                 <div className="h-full rounded-2xl bg-white/5 transition-all duration-300 overflow-hidden flex flex-col">
@@ -92,7 +96,7 @@ export default function ServicesPreview() {
                       unoptimized
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                    
+
                     {/* Title Overlay */}
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-xl font-bold text-white">
