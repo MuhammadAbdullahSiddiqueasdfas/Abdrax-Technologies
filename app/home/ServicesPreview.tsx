@@ -41,10 +41,8 @@ const services = [
 
 export default function ServicesPreview() {
   return (
-    <section className="py-24 bg-dark-900 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.05),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.05),transparent_50%)]" />
+    <section className="py-24 bg-dark-800 relative overflow-hidden">
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -112,7 +110,7 @@ export default function ServicesPreview() {
                     {/* Learn More Link */}
                     <Link
                       href="/services"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors duration-300"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
                     >
                       Learn More
                       <ArrowRight className="text-lg" />

@@ -18,8 +18,14 @@ const technologies = [
 export default function TechStack() {
   return (
     <section className="py-24 bg-dark-800 relative overflow-hidden w-full">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_70%)]" />
+      {/* SVG Gradient Definition for Icons */}
+      <svg width="0" height="0" className="absolute">
+        <linearGradient id="cyan-blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+          <stop stopColor="#06b6d4" offset="0%" />
+          <stop stopColor="#3b82f6" offset="100%" />
+        </linearGradient>
+      </svg>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
         {/* Section Header */}
@@ -31,7 +37,7 @@ export default function TechStack() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
-            Our Tech Stack
+            Our <span className="text-cyan-500">Tech Stack</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             We use cutting-edge technologies to build robust and scalable solutions
@@ -46,7 +52,7 @@ export default function TechStack() {
               .map((tech) => {
                 const IconComponent = (SiIcons as any)[tech.iconName];
                 return {
-                  node: <IconComponent style={{ color: tech.color }} />,
+                  node: <IconComponent style={{ fill: "url(#cyan-blue-gradient)" }} size={60} />,
                   title: tech.name,
                 };
               })}

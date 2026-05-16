@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Clock, Users, Rocket, ShieldCheck, Headphones } from "lucide-react";
+import {
+  Award,
+  Clock,
+  Users,
+  Rocket,
+  ShieldCheck,
+  Headphones,
+} from "lucide-react";
 import SpotlightCard from "@/components/SpotlightCard";
 
 const features = [
@@ -10,52 +17,48 @@ const features = [
     title: "Expert Team",
     description:
       "Our skilled professionals bring years of experience in cutting-edge technologies and best practices.",
-    color: "text-gray-400",
+    color: "text-cyan-500",
   },
   {
     icon: Clock,
     title: "On-Time Delivery",
     description:
       "We value your time and ensure project milestones are met with precision and punctuality.",
-    color: "text-gray-400",
+    color: "text-cyan-500",
   },
   {
     icon: Users,
     title: "Client-Centric Approach",
     description:
       "Your vision drives our work. We collaborate closely to ensure your goals are achieved.",
-    color: "text-gray-400",
+    color: "text-cyan-500",
   },
   {
     icon: Rocket,
     title: "Innovative Solutions",
     description:
       "We leverage the latest technologies to create forward-thinking solutions that scale.",
-    color: "text-gray-400",
+    color: "text-cyan-500",
   },
   {
     icon: ShieldCheck,
     title: "Quality Assurance",
     description:
       "Rigorous testing and quality checks ensure your product is reliable and bug-free.",
-    color: "text-gray-400",
+    color: "text-cyan-500",
   },
   {
     icon: Headphones,
     title: "24/7 Support",
     description:
       "Our dedicated support team is always available to assist you whenever you need help.",
-    color: "text-gray-400",
+    color: "text-cyan-500",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-dark-900 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(139,92,246,0.05),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(59,130,246,0.05),transparent_50%)]" />
-
+    <section className="py-24 bg-dark-800 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -65,12 +68,13 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-white">Why Choose </span>
-            <span className="gradient-text">Abdrax Technologies</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+            Why Choose{" "}
+            <span className="text-cyan-500">Abdrax Technologies</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            We combine expertise, innovation, and dedication to deliver exceptional results
+            We combine expertise, innovation, and dedication to deliver
+            exceptional results
           </p>
         </motion.div>
 
@@ -85,9 +89,9 @@ export default function WhyChooseUs() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
             >
-              <SpotlightCard 
+              <SpotlightCard
                 className="h-full border-white/10 hover:border-white/20 transition-all duration-300"
-                spotlightColor="rgba(255, 255, 255, 0.1)"
+                spotlightColor="rgba(6, 182, 212, 0.15)"
               >
                 {/* Icon */}
                 <div className="mb-6">
