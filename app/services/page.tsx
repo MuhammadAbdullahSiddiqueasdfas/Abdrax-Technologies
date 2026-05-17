@@ -3,7 +3,16 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import BorderGlow from "@/components/BorderGlow";
-import { Code2, Smartphone, Brain, Palette, Monitor, ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import {
+  Code2,
+  Smartphone,
+  Brain,
+  Palette,
+  Monitor,
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+} from "lucide-react";
 
 const services = [
   {
@@ -102,22 +111,26 @@ const process = [
   {
     step: "01",
     title: "Discovery",
-    description: "We start by understanding your goals, audience, and requirements through in-depth consultation.",
+    description:
+      "We start by understanding your goals, audience, and requirements through in-depth consultation.",
   },
   {
     step: "02",
     title: "Planning",
-    description: "We create a detailed roadmap, wireframes, and technical architecture tailored to your project.",
+    description:
+      "We create a detailed roadmap, wireframes, and technical architecture tailored to your project.",
   },
   {
     step: "03",
     title: "Development",
-    description: "Our team builds your solution using agile sprints with regular updates and feedback loops.",
+    description:
+      "Our team builds your solution using agile sprints with regular updates and feedback loops.",
   },
   {
     step: "04",
     title: "Launch",
-    description: "After thorough testing and QA, we deploy your product and provide ongoing support.",
+    description:
+      "After thorough testing and QA, we deploy your product and provide ongoing support.",
   },
 ];
 
@@ -152,8 +165,8 @@ export default function ServicesPage() {
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-400 leading-relaxed">
-              Comprehensive digital solutions designed to help your business grow, scale,
-              and succeed in the modern digital landscape.
+              Comprehensive digital solutions designed to help your business
+              grow, scale, and succeed in the modern digital landscape.
             </p>
           </motion.div>
         </div>
@@ -172,13 +185,17 @@ export default function ServicesPage() {
               transition={{ duration: 0.6, delay: index * 0.05 }}
             >
               <BorderGlow
-                borderRadius={16}
-                glowRadius={30}
-                glowColor="210 100 60"
-                colors={['#3b82f6', '#60a5fa', '#93c5fd']}
-                fillOpacity={0.2}
+                edgeSensitivity={10}
+                glowColor="0 255 255"
+                backgroundColor="#120F17"
+                borderRadius={28}
+                glowRadius={50}
+                glowIntensity={0.2}
+                coneSpread={25}
+                animated={false}
+                colors={["#06b6d4", "#22d3ee", "#67e8f9"]}
               >
-                <div className={`p-8 md:p-10 rounded-2xl ${service.bgColor} transition-all duration-300`}>
+                <div className="p-8 md:p-10 transition-all duration-300">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     {/* Left */}
                     <div>
@@ -187,7 +204,7 @@ export default function ServicesPage() {
                       >
                         <service.icon className="text-white text-2xl" />
                       </div>
-                      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-4">
                         {service.title}
                       </h2>
                       <p className="text-gray-400 leading-relaxed mb-6">
@@ -211,7 +228,9 @@ export default function ServicesPage() {
                         {service.features.map((feature, fi) => (
                           <li key={fi} className="flex items-start gap-3">
                             <CheckCircle2 className="text-blue-400 mt-0.5 flex-shrink-0 text-sm" />
-                            <span className="text-gray-300 text-sm">{feature}</span>
+                            <span className="text-gray-300 text-sm">
+                              {feature}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -258,8 +277,12 @@ export default function ServicesPage() {
                   <div className="text-5xl font-bold gradient-text mb-4 leading-none">
                     {step.step}
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
                 {index < process.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-blue-500/30 z-10" />
@@ -288,7 +311,8 @@ export default function ServicesPage() {
               <span className="gradient-text">You Need?</span>
             </h2>
             <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
-              Let&apos;s talk. We&apos;ll help you figure out the best solution for your goals.
+              Let&apos;s talk. We&apos;ll help you figure out the best solution
+              for your goals.
             </p>
             <Link
               href="/contact"
