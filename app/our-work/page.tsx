@@ -604,7 +604,7 @@ export default function OurWorkPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-white/5 border border-white/10"
+                className="glass-card text-center p-6"
               >
                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
                   {stat.number}
@@ -617,7 +617,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-dark-900 relative overflow-hidden">
+      <section className="section-wrapper bg-dark-900">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-blue-600/10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]" />
 
@@ -632,11 +632,11 @@ export default function OurWorkPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 mb-6">
               <ExternalLink className="text-white text-xl" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="section-heading">
               <span className="text-white">Your Project Could Be </span>
               <span className="gradient-text">Next</span>
             </h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
+            <p className="section-description mb-8">
               Let&apos;s create something remarkable together. Tell us about your idea.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

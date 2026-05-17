@@ -58,7 +58,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-dark-800 relative overflow-hidden">
+    <section className="section-wrapper">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -68,11 +68,11 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="section-heading text-white">
             Why Choose{" "}
             <span className="text-cyan-500">Abdrax Technologies</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="section-description">
             We combine expertise, innovation, and dedication to deliver
             exceptional results
           </p>

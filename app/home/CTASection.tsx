@@ -6,14 +6,14 @@ import { Rocket, ArrowRight } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-dark-800 relative overflow-hidden">
+    <section className="section-wrapper">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center p-12 md:p-16 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm"
+          className="glass-card text-center p-12 md:p-16 rounded-3xl"
         >
           {/* Icon */}
           <motion.div
@@ -27,12 +27,12 @@ export default function CTASection() {
           </motion.div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-cyan-500">
+          <h2 className="section-heading text-cyan-500">
             Ready to Transform Your Business?
           </h2>
 
           {/* Description */}
-          <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="section-description mb-10">
             Let&apos;s discuss your project and create something amazing
             together. Our team is ready to bring your vision to life.
           </p>

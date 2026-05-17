@@ -51,7 +51,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact-form" className="py-24 bg-dark-800 relative overflow-hidden">
+    <section id="contact-form" className="section-wrapper">
 
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -62,10 +62,10 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="section-heading text-white">
             Let&apos;s Start Your Project
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="section-description">
             Fill out the form below and we&apos;ll get back to you within 24 hours
           </p>
         </motion.div>
@@ -78,7 +78,7 @@ export default function ContactSection() {
         >
           <form
             onSubmit={handleSubmit}
-            className="p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+            className="glass-card p-8 md:p-10"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
@@ -92,7 +92,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                  className="glass-input"
                   placeholder="John Doe"
                 />
               </div>
@@ -108,7 +108,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                  className="glass-input"
                   placeholder="john@example.com"
                 />
               </div>
@@ -125,7 +125,7 @@ export default function ContactSection() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                  className="glass-input"
                   placeholder="+92 300 1234567"
                 />
               </div>
@@ -140,7 +140,7 @@ export default function ContactSection() {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-[#0d0d0d] border border-white/10 text-white focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                  className="glass-input"
                 >
                   <option value="" className="bg-gray-900">Select a service</option>
                   <option value="software-development" className="bg-gray-900">Software Development</option>
@@ -162,7 +162,7 @@ export default function ContactSection() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none"
+                className="glass-input resize-none"
                 placeholder="Tell us about your project..."
               />
             </div>

@@ -225,7 +225,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-dark-800 relative overflow-hidden">
+      <section className="section-wrapper">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.05),transparent_60%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -235,11 +235,11 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="section-heading">
               <span className="text-white">Our </span>
               <span className="gradient-text">Process</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="section-description">
               A proven workflow that delivers results every time
             </p>
           </motion.div>
@@ -254,7 +254,7 @@ export default function ServicesPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all duration-300 h-full">
+                <div className="glass-card p-8 h-full">
                   <div className="text-5xl font-bold gradient-text mb-4 leading-none">
                     {step.step}
                   </div>

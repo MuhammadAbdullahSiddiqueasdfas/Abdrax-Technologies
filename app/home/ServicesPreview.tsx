@@ -46,7 +46,7 @@ const services = [
 
 export default function ServicesPreview() {
   return (
-    <section className="py-24 bg-dark-800 relative overflow-hidden">
+    <section className="section-wrapper">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -56,11 +56,11 @@ export default function ServicesPreview() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="section-heading">
             <span className="text-white">Our </span>
             <span className="text-cyan-400">Services</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="section-description">
             Comprehensive digital solutions to elevate your business to new
             heights
           </p>

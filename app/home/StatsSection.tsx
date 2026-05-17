@@ -48,7 +48,7 @@ function Counter({ end, duration, suffix }: { end: number; duration: number; suf
 
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-dark-800 relative overflow-hidden">
+    <section className="section-wrapper">
 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

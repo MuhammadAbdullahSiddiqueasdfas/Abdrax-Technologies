@@ -199,7 +199,7 @@ export default function ContactPage() {
           >
             <form
               onSubmit={handleSubmit}
-              className="p-8 md:p-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="glass-card p-8 md:p-10"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 {/* Name */}
@@ -214,7 +214,7 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="glass-input"
                     placeholder="John Doe"
                   />
                 </div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="glass-input"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -249,7 +249,7 @@ export default function ContactPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="glass-input"
                     placeholder="+92 300 1234567"
                   />
                 </div>
@@ -265,7 +265,7 @@ export default function ContactPage() {
                     value={formData.service}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-[#0d0d0d] border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                    className="glass-input"
                   >
                     <option value="" className="bg-gray-900">Select a service</option>
                     <option value="web-development" className="bg-gray-900">Web Development</option>
@@ -288,7 +288,7 @@ export default function ContactPage() {
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-[#0d0d0d] border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="glass-input"
                 >
                   <option value="" className="bg-gray-900">Select a budget range</option>
                   <option value="under-500" className="bg-gray-900">Under $500</option>
@@ -311,7 +311,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                  className="glass-input resize-none"
                   placeholder="Tell us about your project, goals, and timeline..."
                 />
               </div>

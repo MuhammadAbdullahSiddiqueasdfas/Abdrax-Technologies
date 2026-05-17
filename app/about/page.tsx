@@ -201,7 +201,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-dark-800 relative overflow-hidden">
+      <section className="section-wrapper">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,92,246,0.05),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -211,11 +211,11 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="section-heading">
               <span className="text-white">Our Core </span>
               <span className="gradient-text">Values</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="section-description">
               The principles that guide everything we do
             </p>
           </motion.div>
@@ -231,7 +231,7 @@ export default function AboutPage() {
                 className="group"
               >
                 <div
-                  className={`h-full p-8 rounded-2xl ${value.bg} border ${value.border} hover:border-opacity-60 transition-all duration-300 hover:scale-[1.02]`}
+                  className={`h-full glass-card p-8 ${value.bg} ${value.border} hover:scale-[1.02]`}
                 >
                   <div
                     className={`w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
@@ -248,7 +248,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-dark-900 relative overflow-hidden">
+      <section className="section-wrapper bg-dark-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(59,130,246,0.05),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -258,11 +258,11 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="section-heading">
               <span className="text-white">Meet Our </span>
               <span className="gradient-text">Team</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="section-description">
               Talented professionals united by a passion for technology and innovation
             </p>
           </motion.div>
@@ -278,7 +278,7 @@ export default function AboutPage() {
                 whileHover={{ y: -6 }}
                 className="group"
               >
-                <div className="h-full p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all duration-300 text-center">
+                <div className="h-full glass-card p-8 text-center">
                   <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600/30 to-purple-600/30 border border-blue-500/20 flex items-center justify-center text-4xl mx-auto mb-5">
                     {member.emoji}
                   </div>
@@ -293,7 +293,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-dark-800 relative overflow-hidden">
+      <section className="section-wrapper">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-blue-600/10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]" />
 

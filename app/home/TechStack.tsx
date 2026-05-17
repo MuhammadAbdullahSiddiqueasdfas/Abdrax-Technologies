@@ -17,7 +17,7 @@ const technologies = [
 
 export default function TechStack() {
   return (
-    <section className="py-24 bg-dark-800 relative overflow-hidden w-full">
+    <section className="section-wrapper">
       {/* SVG Gradient Definition for Icons */}
       <svg width="0" height="0" className="absolute">
         <linearGradient id="cyan-blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
@@ -36,10 +36,10 @@ export default function TechStack() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="section-heading text-white">
             Our <span className="text-cyan-500">Tech Stack</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="section-description">
             We use cutting-edge technologies to build robust and scalable solutions
           </p>
         </motion.div>
