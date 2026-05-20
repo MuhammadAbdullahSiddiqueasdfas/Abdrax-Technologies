@@ -1,18 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import * as SiIcons from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiExpress,
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiMongodb,
+  SiPostgresql,
+  SiTailwindcss
+} from "react-icons/si";
 import LogoLoop from "@/components/LogoLoop";
 
 const technologies = [
-  { iconName: "SiNextdotjs", name: "Next.js", color: "#FFFFFF" },
-  { iconName: "SiExpress", name: "Express", color: "#FFFFFF" },
-  { iconName: "SiHtml5", name: "HTML5", color: "#FFFFFF" },
-  { iconName: "SiCss3", name: "CSS3", color: "#FFFFFF" },
-  { iconName: "SiJavascript", name: "JavaScript", color: "#FFFFFF" },
-  { iconName: "SiMongodb", name: "MongoDB", color: "#FFFFFF" },
-  { iconName: "SiPostgresql", name: "PostgreSQL", color: "#FFFFFF" },
-  { iconName: "SiTailwindcss", name: "Tailwind", color: "#FFFFFF" },
+  { Icon: SiNextdotjs, name: "Next.js" },
+  { Icon: SiExpress, name: "Express" },
+  { Icon: SiHtml5, name: "HTML5" },
+  { Icon: SiCss, name: "CSS3" },
+  { Icon: SiJavascript, name: "JavaScript" },
+  { Icon: SiMongodb, name: "MongoDB" },
+  { Icon: SiPostgresql, name: "PostgreSQL" },
+  { Icon: SiTailwindcss, name: "Tailwind" },
 ];
 
 export default function TechStack() {
@@ -47,15 +56,10 @@ export default function TechStack() {
         {/* Scrolling Technologies */}
         <div className="relative w-full">
           <LogoLoop
-            logos={technologies
-              .filter((tech) => (SiIcons as any)[tech.iconName])
-              .map((tech) => {
-                const IconComponent = (SiIcons as any)[tech.iconName];
-                return {
-                  node: <IconComponent style={{ fill: "url(#cyan-blue-gradient)" }} size={60} />,
-                  title: tech.name,
-                };
-              })}
+            logos={technologies.map((tech) => ({
+              node: <tech.Icon style={{ fill: "url(#cyan-blue-gradient)" }} size={60} />,
+              title: tech.name,
+            }))}
             speed={40}
             direction="left"
             logoHeight={60}
