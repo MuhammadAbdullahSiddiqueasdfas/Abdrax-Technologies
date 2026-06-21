@@ -53,9 +53,9 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-400 transition-colors" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500/50 group-hover:bg-cyan-400 transition-colors" />
                     {link.label}
                   </Link>
                 </li>
@@ -73,9 +73,9 @@ export default function Footer() {
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500/50 group-hover:bg-purple-400 transition-colors" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-violet-500/50 group-hover:bg-violet-400 transition-colors" />
                     {service}
                   </Link>
                 </li>
@@ -90,7 +90,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="text-blue-400 mt-0.5 flex-shrink-0" size={18} />
+                <MapPin className="text-cyan-400 mt-0.5 flex-shrink-0" size={18} />
                 <span className="text-gray-400 text-sm">
                   Hassan Abdal, Wah, Pakistan 47040
                 </span>
@@ -99,18 +99,18 @@ export default function Footer() {
                 <Mail className="text-blue-400 flex-shrink-0" size={18} />
                 <a
                   href="mailto:abdraxoffical@gmail.com"
-                  className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
+                  className="text-gray-400 hover:text-cyan-400 text-sm transition-colors"
                 >
                   abdraxoffical@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="text-blue-400 flex-shrink-0" size={18} />
+                <Phone className="text-cyan-400 flex-shrink-0" size={18} />
                 <a
-                  href="tel:+923180057581"
-                  className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
+                  href="tel:+923018431216"
+                  className="text-gray-400 hover:text-cyan-400 text-sm transition-colors"
                 >
-                  +92 318 0057581
+                  +92 301 8431216
                 </a>
               </li>
             </ul>

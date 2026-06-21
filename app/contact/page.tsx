@@ -2,53 +2,93 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, MapPin, Mail, Phone, Clock, Sparkles } from "lucide-react";
+import { Send, CheckCircle2, MapPin, Mail, Phone, Clock, Sparkles, ChevronDown } from "lucide-react";
 
-const contactInfo = [
+const contactCards = [
   {
     icon: MapPin,
     title: "Our Location",
     lines: ["Hassan Abdal, Wah", "Pakistan 47040"],
-    color: "from-blue-500 to-cyan-500",
-    bg: "bg-blue-500/10",
-    border: "border-blue-500/20",
+    href: null,
+    gradient: "from-cyan-500 to-blue-600",
   },
   {
     icon: Mail,
     title: "Email Us",
     lines: ["abdraxoffical@gmail.com"],
     href: "mailto:abdraxoffical@gmail.com",
-    color: "from-purple-500 to-pink-500",
-    bg: "bg-purple-500/10",
-    border: "border-purple-500/20",
+    gradient: "from-violet-500 to-purple-600",
   },
   {
     icon: Phone,
     title: "Call Us",
     lines: ["+92 370 137 1522"],
     href: "tel:+923701371522",
-    color: "from-green-500 to-emerald-500",
-    bg: "bg-green-500/10",
-    border: "border-green-500/20",
+    gradient: "from-emerald-500 to-teal-600",
   },
   {
     icon: Clock,
     title: "Working Hours",
     lines: ["Mon – Sat: 9:00 AM – 7:00 PM", "Sunday: By Appointment"],
-    color: "from-orange-500 to-red-500",
-    bg: "bg-orange-500/10",
-    border: "border-orange-500/20",
+    href: null,
+    gradient: "from-orange-500 to-amber-600",
   },
 ];
 
+const faqs = [
+  {
+    q: "How long does a typical project take?",
+    a: "Project timelines vary based on scope. A simple website takes 1–2 weeks, while complex applications can take 2–4 months. We provide a detailed timeline during our initial consultation.",
+  },
+  {
+    q: "Do you offer post-launch support?",
+    a: "Yes! We offer ongoing maintenance and support packages to keep your product running smoothly after launch.",
+  },
+  {
+    q: "What is your payment structure?",
+    a: "We typically work with a 50% upfront deposit and 50% upon project completion. For larger projects, we can arrange milestone-based payments.",
+  },
+  {
+    q: "Can you work with clients outside Pakistan?",
+    a: "Absolutely. We work with clients globally and are comfortable with remote collaboration across different time zones.",
+  },
+];
+
+function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="border border-white/10 rounded-xl overflow-hidden"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between p-5 text-left hover:bg-white/[0.02] transition-colors"
+      >
+        <span className="text-white font-medium text-sm pr-4">{faq.q}</span>
+        <ChevronDown
+          size={16}
+          className={`text-gray-400 flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-cyan-400" : ""}`}
+        />
+      </button>
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden"
+      >
+        <p className="px-5 pb-5 text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    budget: "",
-    message: "",
+    name: "", email: "", phone: "", service: "", budget: "", message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -64,14 +104,12 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     setError("");
-
     try {
       const res = await fetch("https://formspree.io/f/xrejpvdr", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(formData),
       });
-
       if (res.ok) {
         setIsSubmitted(true);
         setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
@@ -87,11 +125,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-32 bg-black min-h-screen">
-      {/* Hero Section */}
+    <div className="pt-28 min-h-screen">
+
+      {/* ── Hero ── */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(59,130,246,0.1),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(6,182,212,0.1),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -104,15 +143,17 @@ export default function ContactPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-sm font-medium mb-6"
+              className="mb-6"
             >
-              <Sparkles />
-              <span>Get In Touch</span>
+              <span className="eyebrow">
+                <Sparkles size={14} />
+                Get In Touch
+              </span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
               <span className="text-white">Let&apos;s Build </span>
-              <span className="gradient-text">Something Great</span>
+              <span className="text-gradient">Something Great</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-400 leading-relaxed">
@@ -123,44 +164,34 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-12 bg-dark-900 relative overflow-hidden">
+      {/* ── Contact Cards ── */}
+      <section className="py-10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {contactInfo.map((info, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {contactCards.map((card, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -4 }}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
               >
-                <div
-                  className={`h-full p-6 rounded-2xl ${info.bg} border ${info.border} transition-all duration-300`}
-                >
-                  <div
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center mb-4`}
-                  >
-                    <info.icon className="text-white text-lg" />
+                <div className="h-full p-5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-cyan-500/25 transition-all duration-300">
+                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${card.gradient} flex items-center justify-center mb-4 shadow-lg`}>
+                    <card.icon size={18} className="text-white" />
                   </div>
-                  <h3 className="text-white font-semibold mb-2">{info.title}</h3>
-                  {info.href ? (
+                  <h3 className="text-white font-semibold text-sm mb-2">{card.title}</h3>
+                  {card.href ? (
                     <a
-                      href={info.href}
-                      className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
+                      href={card.href}
+                      className="text-gray-400 hover:text-cyan-400 text-xs transition-colors leading-relaxed"
                     >
-                      {info.lines.map((line, li) => (
-                        <span key={li} className="block">
-                          {line}
-                        </span>
-                      ))}
+                      {card.lines.map((line, li) => <span key={li} className="block">{line}</span>)}
                     </a>
                   ) : (
-                    info.lines.map((line, li) => (
-                      <p key={li} className="text-gray-400 text-sm">
-                        {line}
-                      </p>
+                    card.lines.map((line, li) => (
+                      <p key={li} className="text-gray-400 text-xs leading-relaxed">{line}</p>
                     ))
                   )}
                 </div>
@@ -170,103 +201,51 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="py-16 bg-dark-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]" />
-
+      {/* ── Form ── */}
+      <section className="py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(6,182,212,0.05),transparent_55%)] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+            <div className="eyebrow mb-4">Send a Message</div>
+            <h2 className="text-3xl sm:text-4xl font-bold">
               <span className="text-white">Send Us a </span>
-              <span className="gradient-text">Message</span>
+              <span className="text-gradient">Message</span>
             </h2>
-            <p className="text-gray-400">
-              We&apos;ll respond within 24 hours on business days.
-            </p>
+            <p className="text-gray-500 text-sm mt-2">We&apos;ll respond within 24 hours on business days.</p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <form
-              onSubmit={handleSubmit}
-              className="glass-card p-8 md:p-10"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                {/* Name */}
+            <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="glass-input"
-                    placeholder="John Doe"
-                  />
+                  <label htmlFor="cn-name" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Full Name *</label>
+                  <input type="text" id="cn-name" name="name" value={formData.name} onChange={handleChange} required className="glass-input" placeholder="John Doe" />
                 </div>
-
-                {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="glass-input"
-                    placeholder="john@example.com"
-                  />
+                  <label htmlFor="cn-email" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Email Address *</label>
+                  <input type="email" id="cn-email" name="email" value={formData.email} onChange={handleChange} required className="glass-input" placeholder="john@example.com" />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                {/* Phone */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="glass-input"
-                    placeholder="+92 300 1234567"
-                  />
+                  <label htmlFor="cn-phone" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Phone Number</label>
+                  <input type="tel" id="cn-phone" name="phone" value={formData.phone} onChange={handleChange} className="glass-input" placeholder="+92 300 1234567" />
                 </div>
-
-                {/* Service */}
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                    Service Needed *
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    required
-                    className="glass-input"
-                  >
+                  <label htmlFor="cn-service" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Service Needed *</label>
+                  <select id="cn-service" name="service" value={formData.service} onChange={handleChange} required className="glass-input">
                     <option value="" className="bg-gray-900">Select a service</option>
                     <option value="web-development" className="bg-gray-900">Web Development</option>
                     <option value="app-development" className="bg-gray-900">App Development</option>
@@ -278,18 +257,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Budget */}
-              <div className="mb-6">
-                <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-2">
-                  Estimated Budget
-                </label>
-                <select
-                  id="budget"
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  className="glass-input"
-                >
+              <div className="mb-5">
+                <label htmlFor="cn-budget" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Estimated Budget</label>
+                <select id="cn-budget" name="budget" value={formData.budget} onChange={handleChange} className="glass-input">
                   <option value="" className="bg-gray-900">Select a budget range</option>
                   <option value="under-500" className="bg-gray-900">Under $500</option>
                   <option value="500-1000" className="bg-gray-900">$500 – $1,000</option>
@@ -299,53 +269,30 @@ export default function ContactPage() {
                 </select>
               </div>
 
-              {/* Message */}
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Project Details *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="glass-input resize-none"
-                  placeholder="Tell us about your project, goals, and timeline..."
-                />
+                <label htmlFor="cn-message" className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Project Details *</label>
+                <textarea id="cn-message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="glass-input resize-none" placeholder="Tell us about your project, goals, and timeline..." />
               </div>
 
-              {/* Success Message */}
               {isSubmitted && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3"
-                >
-                  <CheckCircle2 className="text-green-400 text-xl flex-shrink-0" />
-                  <p className="text-green-400 text-sm">
-                    Thank you! Your message has been sent. We&apos;ll get back to you within 24 hours.
-                  </p>
+                <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
+                  className="mb-5 p-4 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center gap-3">
+                  <CheckCircle2 size={18} className="text-green-400 flex-shrink-0" />
+                  <p className="text-green-400 text-sm">Thank you! We&apos;ll get back to you within 24 hours.</p>
                 </motion.div>
               )}
 
-              {/* Error Message */}
               {error && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center gap-3"
-                >
+                <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
+                  className="mb-5 p-4 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center gap-3">
                   <p className="text-red-400 text-sm">{error}</p>
                 </motion.div>
               )}
 
-              {/* Submit */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full btn-primary px-6 py-4 rounded-xl text-base font-semibold text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                className="w-full btn-primary px-6 py-4 rounded-xl text-base font-semibold text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 group"
               >
                 {isSubmitting ? (
                   <>
@@ -355,12 +302,12 @@ export default function ContactPage() {
                 ) : (
                   <>
                     <span>Send Message</span>
-                    <Send />
+                    <Send size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </>
                 )}
               </button>
 
-              <p className="text-center text-gray-500 text-xs mt-4">
+              <p className="text-center text-gray-600 text-xs mt-4">
                 🔒 Your information is secure and will never be shared.
               </p>
             </form>
@@ -368,52 +315,26 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Strip */}
-      <section className="py-16 bg-dark-800 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── FAQ ── */}
+      <section className="py-16 relative overflow-hidden">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+            <div className="eyebrow mb-4">FAQ</div>
+            <h2 className="text-2xl sm:text-3xl font-bold">
               <span className="text-white">Frequently Asked </span>
-              <span className="gradient-text">Questions</span>
+              <span className="text-gradient">Questions</span>
             </h2>
           </motion.div>
 
-          <div className="space-y-4">
-            {[
-              {
-                q: "How long does a typical project take?",
-                a: "Project timelines vary based on scope. A simple website takes 1–2 weeks, while complex applications can take 2–4 months. We provide a detailed timeline during our initial consultation.",
-              },
-              {
-                q: "Do you offer post-launch support?",
-                a: "Yes! We offer ongoing maintenance and support packages to keep your product running smoothly after launch.",
-              },
-              {
-                q: "What is your payment structure?",
-                a: "We typically work with a 50% upfront deposit and 50% upon project completion. For larger projects, we can arrange milestone-based payments.",
-              },
-              {
-                q: "Can you work with clients outside Pakistan?",
-                a: "Absolutely. We work with clients globally and are comfortable with remote collaboration across different time zones.",
-              },
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/20 transition-all duration-300"
-              >
-                <h3 className="text-white font-semibold mb-2">{faq.q}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
-              </motion.div>
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} faq={faq} index={index} />
             ))}
           </div>
         </div>

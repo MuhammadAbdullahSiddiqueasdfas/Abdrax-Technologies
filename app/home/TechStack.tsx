@@ -2,89 +2,122 @@
 
 import { motion } from "framer-motion";
 import {
-  SiNextdotjs,
-  SiExpress,
-  SiHtml5,
-  SiCss,
-  SiJavascript,
-  SiMongodb,
-  SiPostgresql,
-  SiTailwindcss
+  SiNextdotjs, SiReact, SiNodedotjs, SiFlutter, SiPython,
+  SiTypescript, SiMongodb, SiPostgresql, SiTailwindcss, SiFirebase,
 } from "react-icons/si";
 import LogoLoop from "@/components/LogoLoop";
 
-const technologies = [
+const technologiesRow1 = [
   { Icon: SiNextdotjs, name: "Next.js" },
-  { Icon: SiExpress, name: "Express" },
-  { Icon: SiHtml5, name: "HTML5" },
-  { Icon: SiCss, name: "CSS3" },
-  { Icon: SiJavascript, name: "JavaScript" },
+  { Icon: SiReact, name: "React" },
+  { Icon: SiNodedotjs, name: "Node.js" },
+  { Icon: SiFlutter, name: "Flutter" },
+  { Icon: SiPython, name: "Python" },
+];
+
+const technologiesRow2 = [
+  { Icon: SiTypescript, name: "TypeScript" },
   { Icon: SiMongodb, name: "MongoDB" },
   { Icon: SiPostgresql, name: "PostgreSQL" },
   { Icon: SiTailwindcss, name: "Tailwind" },
+  { Icon: SiFirebase, name: "Firebase" },
 ];
 
 export default function TechStack() {
   return (
     <section className="section-wrapper">
-      {/* SVG Gradient Definition for Icons */}
+      {/* SVG gradient def */}
       <svg width="0" height="0" className="absolute">
-        <linearGradient id="cyan-blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-          <stop stopColor="#06b6d4" offset="0%" />
-          <stop stopColor="#3b82f6" offset="100%" />
-        </linearGradient>
+        <defs>
+          <linearGradient id="tech-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop stopColor="#06b6d4" offset="0%" />
+            <stop stopColor="#818cf8" offset="100%" />
+          </linearGradient>
+        </defs>
       </svg>
 
+      {/* Subtle radial */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(129,140,248,0.06),transparent_60%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
-        {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-14"
         >
-          <h2 className="section-heading text-white">
-            Our <span className="text-cyan-500">Tech Stack</span>
+          <div className="eyebrow mb-4">Built With The Best</div>
+          <h2 className="section-heading">
+            Our <span className="text-gradient">Tech Stack</span>
           </h2>
           <p className="section-description">
             We use cutting-edge technologies to build robust and scalable solutions
           </p>
         </motion.div>
 
-        {/* Scrolling Technologies */}
-        <div className="relative w-full">
+        {/* Scrolling rows */}
+        <div className="space-y-8 overflow-hidden">
           <LogoLoop
-            logos={technologies.map((tech) => ({
-              node: <tech.Icon style={{ fill: "url(#cyan-blue-gradient)" }} size={60} />,
+            logos={technologiesRow1.map((tech) => ({
+              node: (
+                <div className="flex flex-col items-center gap-2 px-2 group/logo">
+                  <tech.Icon
+                    style={{ fill: "url(#tech-gradient)" }}
+                    size={48}
+                    className="group-hover/logo:scale-110 transition-transform duration-300"
+                  />
+                  <span className="text-xs text-gray-600 group-hover/logo:text-gray-400 transition-colors font-medium">{tech.name}</span>
+                </div>
+              ),
               title: tech.name,
             }))}
-            speed={40}
+            speed={45}
             direction="left"
-            logoHeight={60}
-            gap={60}
+            logoHeight={80}
+            gap={50}
             hoverSpeed={0}
-            scaleOnHover={true}
+            scaleOnHover={false}
             fadeOut={true}
-            fadeOutColor="#0a0a0a"
+            fadeOutColor="#060609"
+          />
+
+          <LogoLoop
+            logos={technologiesRow2.map((tech) => ({
+              node: (
+                <div className="flex flex-col items-center gap-2 px-2 group/logo">
+                  <tech.Icon
+                    style={{ fill: "url(#tech-gradient)" }}
+                    size={48}
+                    className="group-hover/logo:scale-110 transition-transform duration-300"
+                  />
+                  <span className="text-xs text-gray-600 group-hover/logo:text-gray-400 transition-colors font-medium">{tech.name}</span>
+                </div>
+              ),
+              title: tech.name,
+            }))}
+            speed={35}
+            direction="right"
+            logoHeight={80}
+            gap={50}
+            hoverSpeed={0}
+            scaleOnHover={false}
+            fadeOut={true}
+            fadeOutColor="#060609"
           />
         </div>
 
-        {/* Bottom Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12"
+          className="text-center text-gray-600 text-sm mt-10"
         >
-          <p className="text-gray-500 text-sm">
-            And many more technologies to meet your specific needs
-          </p>
-        </motion.div>
+          And many more technologies to meet your specific needs
+        </motion.p>
       </div>
-
     </section>
   );
 }

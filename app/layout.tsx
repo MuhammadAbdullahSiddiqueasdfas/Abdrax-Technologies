@@ -6,6 +6,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Script from "next/script";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+import WebGLBackgroundClient from "@/components/WebGLBackgroundClient";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -120,7 +121,7 @@ const jsonLd = {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+92-370-137-1522",
+        telephone: "+92-301-8431216",
         contactType: "customer service",
         email: "abdraxoffical@gmail.com",
         availableLanguage: ["English", "Urdu"],
@@ -160,7 +161,7 @@ const jsonLd = {
       name: "Abdrax Technologies",
       image: `${siteUrl}/logo.png`,
       url: siteUrl,
-      telephone: "+92-370-137-1522",
+      telephone: "+92-301-8431216",
       email: "abdraxoffical@gmail.com",
       address: {
         "@type": "PostalAddress",
@@ -208,6 +209,10 @@ export default function RootLayout({
         <link rel="canonical" href={siteUrl} />
       </head>
       <body className="bg-black text-white antialiased overflow-x-hidden">
+        {/* Shared Three.js background — one GPU context for the whole site. */}
+        <WebGLBackgroundClient />
+        {/* Dark scrim over the WebGL canvas so content stays readable. */}
+        <div className="fixed inset-0 z-0 pointer-events-none content-scrim" aria-hidden="true" />
         <Script
           id="json-ld"
           type="application/ld+json"
@@ -215,7 +220,7 @@ export default function RootLayout({
         />
         <ScrollToTop />
         <Navbar />
-        <main className="min-h-screen overflow-x-hidden">{children}</main>
+        <main className="relative z-10 min-h-screen overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>
