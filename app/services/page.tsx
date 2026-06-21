@@ -199,11 +199,7 @@ export default function ServicesPage() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     {/* Left */}
                     <div>
-                      <div
-                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-5`}
-                      >
-                        <service.icon className="text-white text-2xl" />
-                      </div>
+                      <service.icon className="text-cyan-400 text-5xl mb-6" strokeWidth={1.5} />
                       <h2 className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-4">
                         {service.title}
                       </h2>
